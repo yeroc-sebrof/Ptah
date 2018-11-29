@@ -1,0 +1,14 @@
+# install s3fs to mount a S3 bucket
+cd ~
+git clone https://github.com/s3fs-fuse/s3fs-fuse.git
+cd s3fs-fuse/
+./autogen.sh
+./configure --prefix=/usr --with-openssl
+make
+sudo make install
+which s3fs # output of this confirms the tool has successfully installed
+cd ..
+
+# Add AWS Creds here for S3 User
+sudo nano /etc/passwd-s3fs
+sudo chmod 640 /etc/passwd-s3fs
